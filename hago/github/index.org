@@ -1,0 +1,106 @@
+#+TITLE: GitHub
+#+AUTHOR: Wataru MIYAGUNI
+#+EMAIL: gonngo@gmail.com
+#+DESCRIPTION: GitHub とはなんぞや、を簡単に書いて行く感じで
+#+KEYWORDS: github git
+#+LANGUAGE: ja
+#+STYLE: <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+* GitHub とは
+
+#+BEGIN_QUOTE
+  Online project hosting using Git.
+  Includes source-code browser, in-line editing, wikis, and ticketing.
+  Free for public open-source code.
+
+  (via GitHub http://github.com)
+#+END_QUOTE
+
+** ホスティング(サーバ)って？
+#+BEGIN_QUOTE
+   サーバの利用者自身でサーバの運営・管理をしなくてもいいように、
+   有料または無料でサーバ機のHDDの記憶スペースや
+   情報処理機能などを利用させるサービス
+
+   (via [[http://ja.wikipedia.org/wiki/ホスティングサーバ][ホスティングサーバ - Wikipedia]])
+#+END_QUOTE
+
+** リポジトリホスティングサービス一覧
+   #+CAPTION: This is a table with lines around and between cells
+   #+ATTR_HTML: border="2" rules="all" frame="all"
+   | name        | SCM (Source Code Management)            |
+   |-------------+-----------------------------------------|
+   | GitHub      | Git                                     |
+   | SourceForge | Subversion, Git, Mercurial, Bazaar, CVS |
+   | Google Code | Subversion, Mercurial                   |
+   | RubyForge   | Subversion, Git, CVS                    |
+
+** トップページ
+   #+ATTR_HTML: align="center" width="800"
+   [[file:images/github-top.jpg][file:images/github-top.jpg]]
+
+   - フォローしている人の動向
+   - 自身が登録しているリポジトリ
+
+** 基本的な使い方
+*** ユーザ側として
+**** ソースコードをダウンロード
+    検索して git clone 。これだけ！
+
+    #+CAPTION: github にあるソフトウェア
+    #+ATTR_HTML: border="2" rules="all" frame="all"
+    | author / name           | description             | URL                                       |
+    |-------------------------+-------------------------+-------------------------------------------|
+    | rails/rails             | Ruby on Rails           | http://github.com/rails/rails/            |
+    | rspec                   |                         |                                           |
+    | cucumber                |                         |                                           |
+    | Tomohiro/citrus-plugins | Citrus (IRC Bot) Plugin | http://github.com/Tomohiro/citrus-plugins |
+    |                         |                         |                                           |
+
+*** 開発者側として
+**** リポジトリを作ってみよう
+**** 
+**** README
+     http://github.com/guides/readme-formatting
+**** サイトも作れる     
+     repository name を [username].github.com にして
+     その中に HTML ファイルとかを置くと
+
+     : http://[username].github.com
+
+     にアクセスして閲覧可能
+
+*** 他の人のプロジェクトに介入しよう
+**** fork
+**** pull request
+     [[http://github.com/guides/pull-requests][Guides: Pull Requests]]
+     
+* Gist
+** Gist ってなんぞや
+
+*** 例
+    - http://gist.github.com/226929
+    - http://gist.github.com/280017
+    - http://gist.github.com/244029
+*** Gist でも fork できる
+   - gongo http://gist.github.com/280029
+   - Tomohiro http://gist.github.com/280025
+** gisty
+   command line client for gist
+
+   http://github.com/swdyh/gisty
+
+   #+CAPTION: gisty command list
+   #+ATTR_HTML: border="2" rules="all" frame="all"
+   | command                            | description                                                     |
+   |------------------------------------+-----------------------------------------------------------------|
+   | gisty list                         | show local list.                                                |
+   | gisty post file1 file2 ...         | post new gist.                                                  |
+   | gisty private_post file1 file2 ... | post new private gist.                                          |
+   | gisty sync                         | sync remote gist. (clone all remote gist)                       |
+   | gisty sync_delete                  | sync remote gist. delete local gist if remote gist was deleted. |
+   | gisty pull_all                     | pull all gist.                                                  |
+   | gisty about                        | show about gisty                                                |
+   | gisty help                         | show help                                                       |
+   |                                    |                                                                 |
+
