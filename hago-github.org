@@ -6,6 +6,10 @@
 #+LANGUAGE: ja
 #+STYLE: <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 
+* TODO
+  - git fetch
+  - git remote add
+    について調べる
 * GitHub とは
 
 #+BEGIN_QUOTE
@@ -63,6 +67,8 @@
 **** README
      http://github.com/guides/readme-formatting
 **** サイトも作れる     
+     http://pages.github.com/
+
      repository name を [username].github.com にして
      その中に HTML ファイルとかを置くと
 
@@ -77,7 +83,6 @@
      
 * Gist
 ** Gist ってなんぞや
-
 *** 例
     - http://gist.github.com/226929
     - http://gist.github.com/280017
@@ -104,3 +109,5 @@
    | gisty help                         | show help                                                       |
    |                                    |                                                                 |
 
+   - 注意
+     現 version では proxy 設定が行えない
