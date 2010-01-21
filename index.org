@@ -1,0 +1,3 @@
+#+TITLE: Index for project orgfiles
+
+   + [[file:hago-github.org][GitHub]]
