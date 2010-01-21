@@ -6,10 +6,6 @@
 #+LANGUAGE: ja
 #+STYLE: <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 
-* TODO
-  - git fetch
-  - git remote add
-    について調べる
 * GitHub とは
 
 #+BEGIN_QUOTE
@@ -20,7 +16,7 @@
   (via GitHub http://github.com)
 #+END_QUOTE
 
-** ホスティング(サーバ)って？
+** ホスティング(サービス)って？
 #+BEGIN_QUOTE
    サーバの利用者自身でサーバの運営・管理をしなくてもいいように、
    有料または無料でサーバ機のHDDの記憶スペースや
@@ -39,9 +35,11 @@
    | Google Code | Subversion, Mercurial                   |
    | RubyForge   | Subversion, Git, CVS                    |
 
-** トップページ
+** GitHub のトップページはこんな感じ
    #+ATTR_HTML: align="center" width="800"
    [[file:images/github-top.jpg][file:images/github-top.jpg]]
+   
+   以下の情報が見れる
 
    - フォローしている人の動向
    - 自身が登録しているリポジトリ
@@ -51,19 +49,19 @@
 **** ソースコードをダウンロード
     検索して git clone 。これだけ！
 
-    #+CAPTION: github にあるソフトウェア
+    #+CAPTION: github にあるソフトウェア (ごく一部)
     #+ATTR_HTML: border="2" rules="all" frame="all"
-    | author / name           | description             | URL                                       |
-    |-------------------------+-------------------------+-------------------------------------------|
-    | rails/rails             | Ruby on Rails           | http://github.com/rails/rails/            |
-    | rspec                   |                         |                                           |
-    | cucumber                |                         |                                           |
-    | Tomohiro/citrus-plugins | Citrus (IRC Bot) Plugin | http://github.com/Tomohiro/citrus-plugins |
-    |                         |                         |                                           |
+    | author / name  | URL                                       |
+    |----------------+-------------------------------------------|
+    | rails          | http://github.com/rails/rails/            |
+    | rspec          | http://github.com/dchelimsky/rspec/       |
+    | cucumber       | http://github.com/aslakhellesoy/cucumber/ |
+    | citrus-plugins | http://github.com/Tomohiro/citrus-plugins |
+    |                |                                           |
 
 *** 開発者側として
+**** 鍵登録しておかないと！
 **** リポジトリを作ってみよう
-**** 
 **** README
      http://github.com/guides/readme-formatting
 **** サイトも作れる     
