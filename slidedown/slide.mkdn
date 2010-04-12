@@ -1,0 +1,45 @@
+!SLIDE
+
+# My
+
+!SLIDE
+
+# name
+
+!SLIDE
+
+# is
+
+!SLIDE
+
+# gongo!!!!
+
+!SLIDE
+
+<pre>
+  @@@ ruby
+  class Hoge
+    def hago
+      'hago'
+    end
+  end
+  
+  puts "#{Hago.new.hago}, world!"
+  @@@
+</pre>
+
+!SLIDE
+
+→
+
+!SLIDE
+
+@@@ ruby
+    class Hoge
+      def hago
+        'hago'
+      end
+    end
+    
+    puts "#{Hago.new.hago}, world!"
+@@@
