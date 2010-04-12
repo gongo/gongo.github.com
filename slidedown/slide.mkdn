@@ -24,7 +24,7 @@
     end
   end
   
-  puts "#{Hago.new.hago}, world!"
+  puts "#{Hoge.new.hago}, world!"
   @@@
 </pre>
 
@@ -41,5 +41,5 @@
       end
     end
     
-    puts "#{Hago.new.hago}, world!"
+    puts "#{Hoge.new.hago}, world!"
 @@@
