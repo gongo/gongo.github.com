@@ -1,0 +1,36 @@
+# Cuke + Capybara を使ってみよう
+![Cucumber+Capybara](./images/cuke_capybara.png)
+
+## 自己紹介
+
+### 所属と名前
+- 株式会社オーシーシー
+- 宮國　渡 (MIYAGUNI, Wataru)
+
+### まあそれなりのところにいます
+- [Twitter](http://twitter.com/gongoZ) gongoZ
+- [はてな](http://d.hatena.ne.jp/gongoZ) id:gongoZ
+- [mixi](http://mixi.jp/show_profile.pl?id=67309) gongo
+- [Github](http://github.com/gongo) gongo
+
+# Cuke, Capybara ってなに？
+
+# その前に BDD について
+
+## BDD とは
+
+- ビヘイビア駆動開発 (振舞駆動開発; Behavior Driven Development)
+
+> プログラムに期待される「振る舞い」や「制約条件」、
+> つまり「要求仕様」に近い形で、自然言語を併記しながら
+> テストコードを記述する (via ビヘイビア駆動開発 - Wikipedia)
+
+
+- 振舞例
+
+        シナリオ: Google で Cucumber について検索する
+        アクション: 検索窓に「Cucumber」と入力する
+        アクション: 「検索」ボタンを押す
+        結果：Cucumber という文字が入ったページ一覧が出力される
+        
+        

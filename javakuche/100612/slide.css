@@ -1,0 +1,25 @@
+h2 {
+    padding-left: 2em;
+    background: white url("./images/cuke_capybara_mini.png") no-repeat;
+}
+
+h3 {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+blockquote {
+    font-size: smaller;
+    border: 1px solid #888888;
+    padding: 0.3em;
+    margin: 1em;
+    width: 90%;
+}
+
+pre {
+    font-size: smaller;
+    margin: 1em;
+    padding: 0.5em;
+    width: 80%;
+    border: 1px solid black;
+}
