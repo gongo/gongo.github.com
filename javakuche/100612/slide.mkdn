@@ -1,4 +1,4 @@
-# Cuke + Capybara を使ってみよう
+# Cuke + Capybara を使ってみよお
 ![Cucumber+Capybara](./images/cuke_capybara.png)
 
 ## 自己紹介
@@ -28,9 +28,122 @@
 
 - 振舞例
 
-        シナリオ: Google で Cucumber について検索する
-        アクション: 検索窓に「Cucumber」と入力する
-        アクション: 「検索」ボタンを押す
-        結果：Cucumber という文字が入ったページ一覧が出力される
+        Google にアクセスして、検索欄に「Cucumber」って入力したあと、
+        「検索」ボタンを押せば、Cucumber について書かれた
+        ページ一覧が表示されるよ！
         
-        
+<div class="centering">まさに要求仕様！</div>
+
+# .
+
+![Cucumber](./images/cuke.jpg)
+
+
+## Cucumber とは
+
+BDD testing tool
+
+- http://cukes.info/
+
+
+>Google で "cucumber github" を検索すると
+>"Ruby on Rails - cucumber  - Github" と書かれたページが得られる
+
+<div class="centering">&darr;</div>
+
+        # search.feature
+        Feature: Search
+            Scenario: Find what I'm looking for
+                Given I am on the Google search page
+                 When I search for "cucumber github"
+                 Then I should see "Ruby on Rails - cucumber  - GitHub"
+
+# $ cucumber feature.yml
+
+## 実際のディレクトリ構成はこんな雰囲気
+
+    |-- cucumber.yml
+    `-- features
+        |-- search.feature
+        |-- step_definitions
+        |   `-- search_steps.rb
+        `-- support
+            |-- env.rb
+            `-- screenshots.rb
+    
+
+## step を定義する箇所は Ruby で記述
+
+@@@ ruby
+      Given 'I am on the Google search page' do
+        @browser.goto 'http://www.google.com/'
+      end
+
+      When /I search for "(.*)"/ do |query|
+        @browser.text_field(:name, 'q').set(query)
+        @browser.button(:name, 'btnG').click
+      end
+
+      Then /I should see/ do |text|
+        @browser.text.should =~ /#{text}/m
+      end
+@@@
+
+## 日本語でも書ける！
+
+**44カ国語をサポート**
+
+<table>
+  <tr>
+  <td>
+  <pre><code>
+      前提 'Google トップページに居る' do
+        @browser.goto 'http://www.google.com/'
+      end
+
+      もし /"(.*)を検索した時"/ do |query|
+        @browser.text_field(:name, 'q').set(query)
+        @browser.button(:name, 'btnG').click
+      end
+
+      Then /"(.*)"と表示されている/ do |text|
+        @browser.text.should =~ /#{text}/m
+      end
+  </code></pre>
+  </td><td>
+  <pre><code>
+機能: 検索する
+  シナリオ: 検索した結果を表示
+      前提 Google トップページに居る
+      もし "cucumber github"を検索した時
+      ならば "Ruby on Rails - cucumber  - GitHub"と表示されている
+
+  </code></pre>
+</td>
+</tr>
+</table>
+
+# .
+
+![Cucumber](./images/capybara.jpg)
+
+## Capybara とは
+
+### Web Application testing tool
+
+- 公式では Rask Application 用と書いてるが、別に Rack じゃなくても無問題
+- Xpath, Javascript, AJAX対応
+
+### 二つの Driver
+
+- selenium-webdriver
+
+  実際にブラウザを動かしながらテストを行う
+  
+- culerity(celerity)
+
+  headless browser (UIなし) でテストを行う。
+  
+# 実演
+![Cucumber+Capybara](./images/cuke_capybara.png)
+

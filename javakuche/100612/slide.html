@@ -138,7 +138,7 @@ ul {
     </style>
     <!-- gongo -->
     
-      <link rel="stylesheet" href="slide.css" type="text/css" media="screen" charset="utf-8" />
+      <link rel="stylesheet" href="/Users/gongo/Work/gongo.github.com/javakuche/100612/slide.css" type="text/css" media="screen" charset="utf-8" />
     
     <script type="text/javascript">
       /*!
@@ -4875,7 +4875,7 @@ jQuery.extend( jQuery.easing,
         
         <div>
           <div id="slide-0" class="content title">
-            <h1>Cuke + Capybara &#12434;&#20351;&#12387;&#12390;&#12415;&#12424;&#12358;</h1><p><img src="./images/cuke_capybara.png" alt="Cucumber+Capybara"></p>
+            <h1>Cuke + Capybara &#12434;&#20351;&#12387;&#12390;&#12415;&#12424;&#12362;</h1><p><img src="./images/cuke_capybara.png" alt="Cucumber+Capybara"></p>
           </div>
         </div>
         
@@ -4921,13 +4921,139 @@ jQuery.extend( jQuery.easing,
 <li>
 <p>&#25391;&#33310;&#20363;</p>
 
-<pre><code>&#12471;&#12490;&#12522;&#12458;: Google &#12391; Cucumber &#12395;&#12388;&#12356;&#12390;&#26908;&#32034;&#12377;&#12427;
-&#12450;&#12463;&#12471;&#12519;&#12531;: &#26908;&#32034;&#31379;&#12395;&#12300;Cucumber&#12301;&#12392;&#20837;&#21147;&#12377;&#12427;
-&#12450;&#12463;&#12471;&#12519;&#12531;: &#12300;&#26908;&#32034;&#12301;&#12508;&#12479;&#12531;&#12434;&#25276;&#12377;
-&#32080;&#26524;&#65306;Cucumber &#12392;&#12356;&#12358;&#25991;&#23383;&#12364;&#20837;&#12387;&#12383;&#12506;&#12540;&#12472;&#19968;&#35239;&#12364;&#20986;&#21147;&#12373;&#12428;&#12427;
+<pre><code>Google &#12395;&#12450;&#12463;&#12475;&#12473;&#12375;&#12390;&#12289;&#26908;&#32034;&#27396;&#12395;&#12300;Cucumber&#12301;&#12387;&#12390;&#20837;&#21147;&#12375;&#12383;&#12354;&#12392;&#12289;
+&#12300;&#26908;&#32034;&#12301;&#12508;&#12479;&#12531;&#12434;&#25276;&#12379;&#12400;&#12289;Cucumber &#12395;&#12388;&#12356;&#12390;&#26360;&#12363;&#12428;&#12383;
+&#12506;&#12540;&#12472;&#19968;&#35239;&#12364;&#34920;&#31034;&#12373;&#12428;&#12427;&#12424;&#65281;
 </code></pre>
 </li>
 </ul>
+<div class="centering">&#12414;&#12373;&#12395;&#35201;&#27714;&#20181;&#27096;&#65281;</div>
+          </div>
+        </div>
+        
+        <div>
+          <div id="slide-5" class="content title">
+            <h1>.</h1><p><img src="./images/cuke.jpg" alt="Cucumber"></p>
+          </div>
+        </div>
+        
+        <div>
+          <div id="slide-6" class="content ">
+            <h2>Cucumber &#12392;&#12399;</h2><p>BDD testing tool</p><ul>
+<li>http://cukes.info/</li>
+</ul>
+<blockquote><p>Google &#12391; "cucumber github" &#12434;&#26908;&#32034;&#12377;&#12427;&#12392;
+"Ruby on Rails - cucumber  - Github" &#12392;&#26360;&#12363;&#12428;&#12383;&#12506;&#12540;&#12472;&#12364;&#24471;&#12425;&#12428;&#12427;</p></blockquote><div class="centering">&darr;</div><pre><code>    # search.feature
+    Feature: Search
+        Scenario: Find what I'm looking for
+            Given I am on the Google search page
+             When I search for "cucumber github"
+             Then I should see "Ruby on Rails - cucumber  - GitHub"
+</code></pre>
+          </div>
+        </div>
+        
+        <div>
+          <div id="slide-7" class="content title">
+            <h1>$ cucumber feature.yml</h1>
+          </div>
+        </div>
+        
+        <div>
+          <div id="slide-8" class="content ">
+            <h2>&#23455;&#38555;&#12398;&#12487;&#12451;&#12524;&#12463;&#12488;&#12522;&#27083;&#25104;&#12399;&#12371;&#12435;&#12394;&#38640;&#22258;&#27671;</h2><pre><code>|-- cucumber.yml
+`-- features
+    |-- search.feature
+    |-- step_definitions
+    |   `-- search_steps.rb
+    `-- support
+        |-- env.rb
+        `-- screenshots.rb
+</code></pre>
+          </div>
+        </div>
+        
+        <div>
+          <div id="slide-9" class="content ">
+            <h2>step &#12434;&#23450;&#32681;&#12377;&#12427;&#31623;&#25152;&#12399; Ruby &#12391;&#35352;&#36848;</h2><div class="highlight ruby code highlight"><pre>  <span class="no">Given</span> <span class="s1">'I am on the Google search page'</span> <span class="k">do</span>
+    <span class="vi">@browser</span><span class="o">.</span><span class="n">goto</span> <span class="s1">'http://www.google.com/'</span>
+  <span class="k">end</span>
+
+  <span class="no">When</span><span class="sr"> /I search for "(.*)"/</span> <span class="k">do</span> <span class="o">|</span><span class="n">query</span><span class="o">|</span>
+    <span class="vi">@browser</span><span class="o">.</span><span class="n">text_field</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="s1">'q'</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="vi">@browser</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="s1">'btnG'</span><span class="p">)</span><span class="o">.</span><span class="n">click</span>
+  <span class="k">end</span>
+
+  <span class="no">Then</span><span class="sr"> /I should see/</span> <span class="k">do</span> <span class="o">|</span><span class="n">text</span><span class="o">|</span>
+    <span class="vi">@browser</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">should</span> <span class="o">=~</span> <span class="sr">/</span><span class="si">#{</span><span class="n">text</span><span class="si">}</span><span class="sr">/m</span>
+  <span class="k">end</span>
+</pre></div>
+          </div>
+        </div>
+        
+        <div>
+          <div id="slide-10" class="content ">
+            <h2>&#26085;&#26412;&#35486;&#12391;&#12418;&#26360;&#12369;&#12427;&#65281;</h2><p><strong>44&#12459;&#22269;&#35486;&#12434;&#12469;&#12509;&#12540;&#12488;</strong></p><table><tr>
+<td>
+  <pre><code>
+      &#21069;&#25552; 'Google &#12488;&#12483;&#12503;&#12506;&#12540;&#12472;&#12395;&#23621;&#12427;' do
+        @browser.goto 'http://www.google.com/'
+      end
+
+      &#12418;&#12375; /"(.*)&#12434;&#26908;&#32034;&#12375;&#12383;&#26178;"/ do |query|
+        @browser.text_field(:name, 'q').set(query)
+        @browser.button(:name, 'btnG').click
+      end
+
+      Then /"(.*)"&#12392;&#34920;&#31034;&#12373;&#12428;&#12390;&#12356;&#12427;/ do |text|
+        @browser.text.should =~ /#{text}/m
+      end
+  </code></pre>
+  </td>
+<td>
+  <pre><code>
+&#27231;&#33021;: &#26908;&#32034;&#12377;&#12427;
+  &#12471;&#12490;&#12522;&#12458;: &#26908;&#32034;&#12375;&#12383;&#32080;&#26524;&#12434;&#34920;&#31034;
+      &#21069;&#25552; Google &#12488;&#12483;&#12503;&#12506;&#12540;&#12472;&#12395;&#23621;&#12427;
+      &#12418;&#12375; "cucumber github"&#12434;&#26908;&#32034;&#12375;&#12383;&#26178;
+      &#12394;&#12425;&#12400; "Ruby on Rails - cucumber  - GitHub"&#12392;&#34920;&#31034;&#12373;&#12428;&#12390;&#12356;&#12427;
+
+  </code></pre>
+</td>
+</tr></table>
+          </div>
+        </div>
+        
+        <div>
+          <div id="slide-11" class="content title">
+            <h1>.</h1><p><img src="./images/capybara.jpg" alt="Cucumber"></p>
+          </div>
+        </div>
+        
+        <div>
+          <div id="slide-12" class="content ">
+            <h2>Capybara &#12392;&#12399;</h2><h3>Web Application testing tool</h3><ul>
+<li>&#20844;&#24335;&#12391;&#12399; Rask Application &#29992;&#12392;&#26360;&#12356;&#12390;&#12427;&#12364;&#12289;&#21029;&#12395; Rack &#12376;&#12419;&#12394;&#12367;&#12390;&#12418;&#28961;&#21839;&#38988;</li>
+<li>Xpath, Javascript, AJAX&#23550;&#24540;</li>
+</ul>
+<h3>&#20108;&#12388;&#12398; Driver</h3><ul>
+<li>
+<p>selenium-webdriver</p>
+
+<p>&#23455;&#38555;&#12395;&#12502;&#12521;&#12454;&#12470;&#12434;&#21205;&#12363;&#12375;&#12394;&#12364;&#12425;&#12486;&#12473;&#12488;&#12434;&#34892;&#12358;</p>
+</li>
+<li>
+<p>culerity(celerity)</p>
+
+<p>headless browser (UI&#12394;&#12375;) &#12391;&#12486;&#12473;&#12488;&#12434;&#34892;&#12358;&#12290;</p>
+</li>
+</ul>
+          </div>
+        </div>
+        
+        <div>
+          <div id="slide-13" class="content title">
+            <h1>&#23455;&#28436;</h1><p><img src="./images/cuke_capybara.png" alt="Cucumber+Capybara"></p>
           </div>
         </div>
         

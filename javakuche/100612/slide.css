@@ -20,6 +20,19 @@ pre {
     font-size: smaller;
     margin: 1em;
     padding: 0.5em;
-    width: 80%;
     border: 1px solid black;
+}
+
+div.centering {
+    text-align: center;
+    font-size: larger;
+}
+
+li {
+    padding: 0.3em 0;
+}
+
+td {
+    font-size: x-large;
+    width: 100%;
 }
