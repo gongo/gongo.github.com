@@ -34,7 +34,7 @@
         
 <div class="centering">まさに要求仕様！</div>
 
-# .
+# 　
 
 ![Cucumber](./images/cuke.jpg)
 
@@ -43,8 +43,15 @@
 
 BDD testing tool
 
-- http://cukes.info/
+- [http://cukes.info/](http://cukes.info/)
 
+Plain Text で書ける
+
+@@@ sh
+    $ gem install cucumber
+@@@ 
+
+## 例
 
 >Google で "cucumber github" を検索すると
 >"Ruby on Rails - cucumber  - Github" と書かれたページが得られる
@@ -62,14 +69,13 @@ BDD testing tool
 
 ## 実際のディレクトリ構成はこんな雰囲気
 
-    |-- cucumber.yml
+    |-- cucumber.yml            # 実行時設定ファイル
     `-- features
-        |-- search.feature
+        |-- search.feature      # テスト
         |-- step_definitions
-        |   `-- search_steps.rb
+        |   `-- search_steps.rb # ステップ
         `-- support
-            |-- env.rb
-            `-- screenshots.rb
+            |-- env.rb          # 環境設定
     
 
 ## step を定義する箇所は Ruby で記述
@@ -106,7 +112,7 @@ BDD testing tool
         @browser.button(:name, 'btnG').click
       end
 
-      Then /"(.*)"と表示されている/ do |text|
+      ならば /"(.*)"と表示されている/ do |text|
         @browser.text.should =~ /#{text}/m
       end
   </code></pre>
@@ -123,7 +129,7 @@ BDD testing tool
 </tr>
 </table>
 
-# .
+# 　
 
 ![Cucumber](./images/capybara.jpg)
 

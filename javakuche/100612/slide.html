@@ -4933,16 +4933,23 @@ jQuery.extend( jQuery.easing,
         
         <div>
           <div id="slide-5" class="content title">
-            <h1>.</h1><p><img src="./images/cuke.jpg" alt="Cucumber"></p>
+            <h1>&#12288;</h1><p><img src="./images/cuke.jpg" alt="Cucumber"></p>
           </div>
         </div>
         
         <div>
           <div id="slide-6" class="content ">
             <h2>Cucumber &#12392;&#12399;</h2><p>BDD testing tool</p><ul>
-<li>http://cukes.info/</li>
+<li><a href="http://cukes.info/">http://cukes.info/</a></li>
 </ul>
-<blockquote><p>Google &#12391; "cucumber github" &#12434;&#26908;&#32034;&#12377;&#12427;&#12392;
+<p>Plain Text &#12391;&#26360;&#12369;&#12427;</p><div class="highlight sh code highlight"><pre><span class="nv">$ </span>gem install cucumber
+</pre></div>
+          </div>
+        </div>
+        
+        <div>
+          <div id="slide-7" class="content ">
+            <h2>&#20363;</h2><blockquote><p>Google &#12391; "cucumber github" &#12434;&#26908;&#32034;&#12377;&#12427;&#12392;
 "Ruby on Rails - cucumber  - Github" &#12392;&#26360;&#12363;&#12428;&#12383;&#12506;&#12540;&#12472;&#12364;&#24471;&#12425;&#12428;&#12427;</p></blockquote><div class="centering">&darr;</div><pre><code>    # search.feature
     Feature: Search
         Scenario: Find what I'm looking for
@@ -4954,27 +4961,26 @@ jQuery.extend( jQuery.easing,
         </div>
         
         <div>
-          <div id="slide-7" class="content title">
+          <div id="slide-8" class="content title">
             <h1>$ cucumber feature.yml</h1>
           </div>
         </div>
         
         <div>
-          <div id="slide-8" class="content ">
-            <h2>&#23455;&#38555;&#12398;&#12487;&#12451;&#12524;&#12463;&#12488;&#12522;&#27083;&#25104;&#12399;&#12371;&#12435;&#12394;&#38640;&#22258;&#27671;</h2><pre><code>|-- cucumber.yml
+          <div id="slide-9" class="content ">
+            <h2>&#23455;&#38555;&#12398;&#12487;&#12451;&#12524;&#12463;&#12488;&#12522;&#27083;&#25104;&#12399;&#12371;&#12435;&#12394;&#38640;&#22258;&#27671;</h2><pre><code>|-- cucumber.yml            # &#23455;&#34892;&#26178;&#35373;&#23450;&#12501;&#12449;&#12452;&#12523;
 `-- features
-    |-- search.feature
+    |-- search.feature      # &#12486;&#12473;&#12488;
     |-- step_definitions
-    |   `-- search_steps.rb
+    |   `-- search_steps.rb # &#12473;&#12486;&#12483;&#12503;
     `-- support
-        |-- env.rb
-        `-- screenshots.rb
+        |-- env.rb          # &#29872;&#22659;&#35373;&#23450;
 </code></pre>
           </div>
         </div>
         
         <div>
-          <div id="slide-9" class="content ">
+          <div id="slide-10" class="content ">
             <h2>step &#12434;&#23450;&#32681;&#12377;&#12427;&#31623;&#25152;&#12399; Ruby &#12391;&#35352;&#36848;</h2><div class="highlight ruby code highlight"><pre>  <span class="no">Given</span> <span class="s1">'I am on the Google search page'</span> <span class="k">do</span>
     <span class="vi">@browser</span><span class="o">.</span><span class="n">goto</span> <span class="s1">'http://www.google.com/'</span>
   <span class="k">end</span>
@@ -4992,7 +4998,7 @@ jQuery.extend( jQuery.easing,
         </div>
         
         <div>
-          <div id="slide-10" class="content ">
+          <div id="slide-11" class="content ">
             <h2>&#26085;&#26412;&#35486;&#12391;&#12418;&#26360;&#12369;&#12427;&#65281;</h2><p><strong>44&#12459;&#22269;&#35486;&#12434;&#12469;&#12509;&#12540;&#12488;</strong></p><table><tr>
 <td>
   <pre><code>
@@ -5005,7 +5011,7 @@ jQuery.extend( jQuery.easing,
         @browser.button(:name, 'btnG').click
       end
 
-      Then /"(.*)"&#12392;&#34920;&#31034;&#12373;&#12428;&#12390;&#12356;&#12427;/ do |text|
+      &#12394;&#12425;&#12400; /"(.*)"&#12392;&#34920;&#31034;&#12373;&#12428;&#12390;&#12356;&#12427;/ do |text|
         @browser.text.should =~ /#{text}/m
       end
   </code></pre>
@@ -5025,13 +5031,13 @@ jQuery.extend( jQuery.easing,
         </div>
         
         <div>
-          <div id="slide-11" class="content title">
-            <h1>.</h1><p><img src="./images/capybara.jpg" alt="Cucumber"></p>
+          <div id="slide-12" class="content title">
+            <h1>&#12288;</h1><p><img src="./images/capybara.jpg" alt="Cucumber"></p>
           </div>
         </div>
         
         <div>
-          <div id="slide-12" class="content ">
+          <div id="slide-13" class="content ">
             <h2>Capybara &#12392;&#12399;</h2><h3>Web Application testing tool</h3><ul>
 <li>&#20844;&#24335;&#12391;&#12399; Rask Application &#29992;&#12392;&#26360;&#12356;&#12390;&#12427;&#12364;&#12289;&#21029;&#12395; Rack &#12376;&#12419;&#12394;&#12367;&#12390;&#12418;&#28961;&#21839;&#38988;</li>
 <li>Xpath, Javascript, AJAX&#23550;&#24540;</li>
@@ -5052,7 +5058,7 @@ jQuery.extend( jQuery.easing,
         </div>
         
         <div>
-          <div id="slide-13" class="content title">
+          <div id="slide-14" class="content title">
             <h1>&#23455;&#28436;</h1><p><img src="./images/cuke_capybara.png" alt="Cucumber+Capybara"></p>
           </div>
         </div>

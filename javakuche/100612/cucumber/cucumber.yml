@@ -1,0 +1,3 @@
+default: features -f pretty
+google: features/search.feature -f pretty
+sinatra: features/rack.feature -f pretty
