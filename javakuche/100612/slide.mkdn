@@ -1,13 +1,11 @@
-# Cuke + Capybara を使ってみよお
+# Cuke + Capybara を使ってみよう
 ![Cucumber+Capybara](./images/cuke_capybara.png)
 
-## 自己紹介
+# 自己紹介
 
-### 所属と名前
 - 株式会社オーシーシー
 - 宮國　渡 (MIYAGUNI, Wataru)
 
-### まあそれなりのところにいます
 - [Twitter](http://twitter.com/gongoZ) gongoZ
 - [はてな](http://d.hatena.ne.jp/gongoZ) id:gongoZ
 - [mixi](http://mixi.jp/show_profile.pl?id=67309) gongo
@@ -34,18 +32,10 @@
         
 <div class="centering">まさに要求仕様！</div>
 
-# 　
-
-![Cucumber](./images/cuke.jpg)
+# Cucumber = ![Cucumber](./images/cuke.jpg)
 
 
-## Cucumber とは
-
-BDD testing tool
-
-- [http://cukes.info/](http://cukes.info/)
-
-Plain Text で書ける
+# Cucumber = BDD testing tool
 
 @@@ sh
     $ gem install cucumber
@@ -129,13 +119,17 @@ Plain Text で書ける
 </tr>
 </table>
 
-# 　
+# Capybara = ![Cucumber](./images/capybara.jpg)
 
-![Cucumber](./images/capybara.jpg)
+# Capybara = Web Application testing tool
 
-## Capybara とは
+@@@ sh
+    $ gem install capybara
+@@@ 
 
-### Web Application testing tool
+
+
+## Capybara の特徴
 
 - 公式では Rask Application 用と書いてるが、別に Rack じゃなくても無問題
 - Xpath, Javascript, AJAX対応
@@ -152,4 +146,25 @@ Plain Text で書ける
   
 # 実演
 ![Cucumber+Capybara](./images/cuke_capybara.png)
+
+# まとめ
+
+## Cucumber + Capybara のよさ
+
+- commit する度に目で HTML 読むのめんどい時はこれ！
+- 見た目的にインパクト抜群
+- テストをやった「気」になれる(効果もある？)
+- culerity 使えば cron で毎晩ひっそり動かして、その日の分のテストを勝手に！
+
+  - Selenium 版で夜な夜な画面が勝手に・・てのもあり
+  
+# 終了
+
+- 今日使った資料
+
+        http://gongo.github.com/javakuche/100612/slide.html
+   
+- cucumber の feature もろもろ
+
+        http://github.com/gongo/gongo.github.com/tree/master/javakuche/100612
 
