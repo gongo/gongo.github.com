@@ -1,6 +1,14 @@
 # -*- coding: utf-8 -*-
-前提 'Google トップページに居る' do
+前提 'Yahooトップページに居る' do
+  visit 'http://www.yahoo.co.jp'
+end
+
+前提 'Googleトップページに居る' do
   visit 'http://www.google.co.jp'
+end
+
+前提 'livedoorトップページに居る' do
+  visit 'http://www.livedoor.com'
 end
 
 前提 /^"([^\"]*)"にアクセスしている$/ do |url|
@@ -13,10 +21,15 @@ end
 end
 
 もし /^"([^\"]*)"を検索したとき$/ do |query|
-  fill_in "q", :with => query
-  click_button 'Google 検索'
+  steps %Q{
+    もし "q"に"#{query}"を入力する
+    かつ "検索"ボタンをクリックする
+  }
 end
 
+もし /^"([^\"]*)"に"([^\"]*)"を入力する$/ do |pos, text|
+  fill_in pos, :with => text
+end
 
 もし /^"([^\"]*)"を選択する$/ do |radio|
   choose radio

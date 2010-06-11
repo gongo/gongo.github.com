@@ -6,10 +6,10 @@
 - 株式会社オーシーシー
 - 宮國　渡 (MIYAGUNI, Wataru)
 
-- [Twitter](http://twitter.com/gongoZ) gongoZ
-- [はてな](http://d.hatena.ne.jp/gongoZ) id:gongoZ
-- [mixi](http://mixi.jp/show_profile.pl?id=67309) gongo
-- [Github](http://github.com/gongo) gongo
+    - Twitter : http://twitter.com/gongoZ
+    - はてな : http://d.hatena.ne.jp/gongoZ
+    - mixi : http://mixi.jp/show_profile.pl?id=67309
+    - Github : http://github.com/gongo
 
 # Cuke, Capybara ってなに？
 
@@ -32,8 +32,7 @@
         
 <div class="centering">まさに要求仕様！</div>
 
-# Cucumber = ![Cucumber](./images/cuke.jpg)
-
+# ![Cucumber](./images/cuke.jpg) = Cucumber
 
 # Cucumber = BDD testing tool
 
@@ -41,12 +40,14 @@
     $ gem install cucumber
 @@@ 
 
-## 例
+# 　
 
->Google で "cucumber github" を検索すると
->"Ruby on Rails - cucumber  - Github" と書かれたページが得られる
+    Google で "cucumber github" を検索すると
+    "Ruby on Rails - cucumber  - Github" と書かれたページが得られる
 
-<div class="centering">&darr;</div>
+# これをこう書く
+
+# 　
 
         # search.feature
         Feature: Search
@@ -55,7 +56,24 @@
                  When I search for "cucumber github"
                  Then I should see "Ruby on Rails - cucumber  - GitHub"
 
+# これをこうする
+
 # $ cucumber feature.yml
+
+# これがこうなる
+
+# テスト通った！
+
+    Scenario: Find what I'm looking for
+        Given I am on the Google search page
+        When I search for "cucumber github"
+        Then I should see "Ruby on Rails - cucumber  - GitHub"
+        
+        1 scenario (1 passed)
+        3 steps (3 passed)
+        0m4.825s
+
+
 
 ## 実際のディレクトリ構成はこんな雰囲気
 
@@ -119,7 +137,7 @@
 </tr>
 </table>
 
-# Capybara = ![Cucumber](./images/capybara.jpg)
+# ![Cucumber](./images/capybara.jpg) = Capybara
 
 # Capybara = Web Application testing tool
 
@@ -142,6 +160,7 @@
   
 - culerity(celerity)
 
+  HtmlUnit (Java) と Cucumber (Ruby) をつなげる役割(JRuby)  
   headless browser (UIなし) でテストを行う。
   
 # 実演
@@ -152,11 +171,12 @@
 ## Cucumber + Capybara のよさ
 
 - commit する度に目で HTML 読むのめんどい時はこれ！
-- 見た目的にインパクト抜群
-- テストをやった「気」になれる(効果もある？)
+- 見た目的にインパクト抜群。テストをやった気にもなる
 - culerity 使えば cron で毎晩ひっそり動かして、その日の分のテストを勝手に！
 
-  - Selenium 版で夜な夜な画面が勝手に・・てのもあり
+    - Selenium 版で夜な夜な画面が勝手に・・てのもあり
+    
+- UnitTest を Rspec で、そこで不足な部分を Cucumber で！
   
 # 終了
 
@@ -167,4 +187,3 @@
 - cucumber の feature もろもろ
 
         http://github.com/gongo/gongo.github.com/tree/master/javakuche/100612
-

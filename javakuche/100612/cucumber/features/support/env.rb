@@ -12,5 +12,10 @@ ENV['http_proxy'] = nil
 Capybara.app_host = 'localhost:9393'
 Capybara.default_driver = :culerity
 #Capybara.default_driver = :selenium
-Capybara.default_selector = :xpath
 Capybara.run_server = false
+
+# After do |scenario|
+#   if scenario.failed?
+#     page.driver.browser.save_screenshot("#{Time.now.strftime("%y%m%d%H%M%S")}.png")
+#   end
+# end
