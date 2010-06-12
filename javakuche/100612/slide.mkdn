@@ -40,7 +40,7 @@
     $ gem install cucumber
 @@@ 
 
-# 　
+# テスト
 
     Google で "cucumber github" を検索すると
     "Ruby on Rails - cucumber  - Github" と書かれたページが得られる
@@ -49,7 +49,10 @@
 
 # 　
 
-        # search.feature
+@@@ sh
+    $ cat search.feature
+@@@
+        
         Feature: Search
             Scenario: Find what I'm looking for
                 Given I am on the Google search page
@@ -58,7 +61,7 @@
 
 # これをこうする
 
-# $ cucumber feature.yml
+# $ cucumber search.feature
 
 # これがこうなる
 
@@ -107,6 +110,22 @@
 
 **44カ国語をサポート**
 
+@@@ sh
+    $ cucumber --i18n ja
+@@@
+
+      | feature          | "フィーチャ", "機能"                             |
+      | background       | "背景"                                           |
+      | scenario         | "シナリオ"                                       |
+      | examples         | "例", "サンプル"                                 |
+      | given (code)     | "前提"                                           |
+      | when (code)      | "もし"                                           |
+      | then (code)      | "ならば"                                         |
+      | and (code)       | "かつ"                                           |
+      | but (code)       | "しかし", "但し", "ただし"                       |
+
+## 　
+
 <table>
   <tr>
   <td>
@@ -137,6 +156,29 @@
 </tr>
 </table>
 
+## 　
+
+      前提 'Google トップページに居る' do
+        @browser.goto 'http://www.google.com/'
+      end
+
+      もし /"(.*)を検索した時"/ do |query|
+        @browser.text_field(:name, 'q').set(query)
+        @browser.button(:name, 'btnG').click
+      end
+
+      ならば /"(.*)"と表示されている/ do |text|
+        @browser.text.should =~ /#{text}/m
+      end
+　
+
+    機能: 検索する
+      シナリオ: 検索した結果を表示
+          前提 Google トップページに居る
+          もし "cucumber github"を検索した時
+          ならば "Ruby on Rails - cucumber  - GitHub"と表示されている
+    
+
 # ![Cucumber](./images/capybara.jpg) = Capybara
 
 # Capybara = Web Application testing tool
@@ -149,7 +191,7 @@
 
 ## Capybara の特徴
 
-- 公式では Rask Application 用と書いてるが、別に Rack じゃなくても無問題
+- 公式では Rack Application 用と書いてるが、別に Rack じゃなくても無問題
 - Xpath, Javascript, AJAX対応
 
 ### 二つの Driver
@@ -171,12 +213,27 @@
 ## Cucumber + Capybara のよさ
 
 - commit する度に目で HTML 読むのめんどい時はこれ！
-- 見た目的にインパクト抜群。テストをやった気にもなる
+- 見た目的にインパクト抜群。テストをやった気にもなる(やる気アップ)
 - culerity 使えば cron で毎晩ひっそり動かして、その日の分のテストを勝手に！
 
     - Selenium 版で夜な夜な画面が勝手に・・てのもあり
     
 - UnitTest を Rspec で、そこで不足な部分を Cucumber で！
+
+## Cucumber + 別の WebApps Tools もある
+
+### Watir 
+
+> Firefox、Safari、IE 等に対応した headless なテストができる
+  
+### Webrat
+
+> Rails とかと組み合わせやすいメソッドとかいろいろ
+  
+ものによって JavaScript 対応非対応があるので
+
+- 文字だけ見たい場合は Webrat (動作軽快)
+- Ajax や JavaScript などは Capybara (多少重い)
   
 # 終了
 

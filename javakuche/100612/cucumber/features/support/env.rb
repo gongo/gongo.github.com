@@ -10,8 +10,8 @@ require 'capybara/cucumber'
 
 ENV['http_proxy'] = nil
 Capybara.app_host = 'localhost:9393'
-Capybara.default_driver = :culerity
-#Capybara.default_driver = :selenium
+#Capybara.default_driver = :culerity
+Capybara.default_driver = :selenium
 Capybara.run_server = false
 
 # After do |scenario|
