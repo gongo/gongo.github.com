@@ -6,6 +6,7 @@
 #+LATEX_CLASS: beamer
 #+BEAMER_FRAME_LEVEL: 2
 #+BEAMER_HEADER_EXTRA: \usepackage{orgbeamer}
+#+LATEX_HEADER: \usepackage{custom_verbatim}
 
 * 概要
 ** DB の処理能力をアップ！そのためには・・・
@@ -60,7 +61,7 @@
     - デフォルトで 1024 (KB)
     - 4096 くらいでいいんじゃないか説
     - プロセス毎に割り当てられるので注意
-*** effective\_cache_size
+*** effective\_cache\_size
     - キャッシュサイズ
     - デフォルト で 100 (each of 8kb)
     - 搭載メモリの 1/2 とか 1/4

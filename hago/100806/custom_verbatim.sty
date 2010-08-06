@@ -1,0 +1,13 @@
+\usepackage{ascmac}
+\let\orig@verbatim\verbatim
+\let\endorig@verbatim\endverbatim
+\renewenvironment{verbatim}
+                 {
+                   \begin{screen}
+                     \begin{orig@verbatim}
+                 }
+                 {
+                     \end{orig@verbatim}
+                   \end{screen}
+                   \vspace{-1em}
+                 }
