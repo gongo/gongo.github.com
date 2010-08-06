@@ -1,0 +1,183 @@
+#+TITLE: PostgreSQL パフォーマンスチューン
+#+AUTHOR: 宮國 渡
+#+DATE: 2010年8月6日
+#+OPTIONS: toc:nil
+#+STARTUP: beamer
+#+LATEX_CLASS: beamer
+#+BEAMER_FRAME_LEVEL: 2
+#+BEAMER_HEADER_EXTRA: \usepackage{orgbeamer}
+
+* 概要
+** DB の処理能力をアップ！そのためには・・・
+
+   - テーブル設計
+   - SQL
+   - *PostgreSQL のチューニング*
+
+     インストール直後の設定だとまだまだ力を発揮してない！
+
+** チューニングするよ！けど・・・
+
+     DB の用途(扱い方)によって手法が変わってくる
+
+     - ほとんど検索しかしない (SELECT)
+     - 更新しまくり (UPDATE, DELETE, INSERT)
+     - テーブルの大きさ、インデックスのはり方
+
+     特徴に応じたチューニングが必要
+
+** でもめんどくさい
+
+#+BEGIN_LaTeX
+   \Large \color{blue} 今回はある程度決まった設定を紹介!!
+
+   主に攻めるところさえ抑えていればなんとか・・
+#+END_LaTeX
+
+* チューニング
+** postgresql.conf をいじる
+
+   - いくつか項目がある
+     - だいたいはメモリ値を設定
+   - 基本的にはDBサーバの搭載メモリ基準で
+   - テーブルサイズ、アクセスユーザ数なども検討
+
+** 有名どころ
+*** shared\_buffers
+    - 共有バッファ
+    - デフォルトで 1000 (each of 8kb)
+    - 8.x 系だと 100000 がピーク
+    - 搭載メモリの 1/2 とか 1/4 が目安
+*** max\_connections
+    - 同時接続数
+    - デフォルトで 100
+** 有名どころ (Con't)
+*** work\_mem
+    - 内部並べ替えとハッシュテーブル操作が使用するメモリ容量
+      - ORDER BY
+      - Merge join
+      - CREATE INDEX
+    - デフォルトで 1024 (KB)
+    - 4096 くらいでいいんじゃないか説
+    - プロセス毎に割り当てられるので注意
+*** effective\_cache_size
+    - キャッシュサイズ
+    - デフォルト で 100 (each of 8kb)
+    - 搭載メモリの 1/2 とか 1/4
+* ベンチマーク
+** どうやって性能向上を測る？
+#+BEGIN_LaTeX
+   \Large 目測？雰囲気？
+#+END_LaTeX
+** どうやって性能向上を測る？
+#+BEGIN_LaTeX
+   \Large お客様の感想？？
+#+END_LaTeX
+** どうやって性能向上を測る？
+#+BEGIN_LaTeX
+   \Large きちんと数字として出そうよ！(ベンチマーク)
+#+END_LaTeX
+
+** pgbench
+*** pgbench ってなに
+
+    ベンチマーク試験を行うプログラム
+
+*** インストール
+
+    : # aptitude install postgresql-contrib
+
+** ベンチマーク用DB 作成
+   : $ createdb testdb
+   : $ pgbench -i testdb
+
+   - オプション
+     - -i データベース初期化
+     - -s テストデータ件数の増加 (デフォルトは 10 万件)
+
+       : -s 10 => 10 万件 * 10 = 100万件のテストデータ
+
+** 実行してみよう
+
+   : $ pgbench testdb
+   : starting vacuum...end.
+   : transaction type: TPC-B (sort of)
+   : scaling factor: 1
+   : query mode: simple
+   : number of clients: 1
+   : number of transactions per client: 10
+   : number of transactions actually processed: 10/10
+   : tps = 97.817687 (including connections establishing)
+   : tps = 104.739461 (excluding connections establishing)
+
+** 実行してみよう (検索only)
+
+   : $ pgbench -S testdb   
+   : starting vacuum...end.
+   : transaction type: SELECT only
+   : scaling factor: 1
+   : query mode: simple
+   : number of clients: 1
+   : number of transactions per client: 10
+   : number of transactions actually processed: 10/10
+   : tps = 551.328702 (including connections establishing)
+   : tps = 1218.026797 (excluding connections establishing)
+
+** 他にもいくつかオプションあるよ！
+
+   - -C
+     - 同時クライアント数
+   - -t
+     - 各クライアントのトランザクション数
+   - -C
+     - 最初に確立したコネクションは使いまわさない
+   - -N
+     - TPC-B じゃないトランザクション(同時接続数が多いWebシステム向け)の負荷を行う
+     - TPC-B とは：銀行口座処理がモデル
+
+** 実例
+
+PostgreSQL 8.1 での出来事です
+
+*** 某社での postgresql.conf
+
+    : < effective_cache_size = 1000
+    : ===
+    : > effective_cache_size = 64000
+
+*** 効果
+
+    : $ pgbench -c 10 -t 100 -C -N
+
+    #+ATTR_LaTeX: align=|r|r|
+    |----------------+-----|
+    | チューニング前 |  85 |
+    |----------------+-----|
+    | チューニング後 | 280 |
+    |----------------+-----|
+
+    たったこれだけでも *理論値* で 3.3 倍も性能向上！！
+
+* まとめ
+** めんどくさいとはいったものの・・
+
+   てーげーに数字当てはめないでちゃんと確認しようね！
+
+   - DB の使用方法(検索主体なのかとか)
+   - DBサーバの情報・設定
+     - メモリ設定時にカーネルの値も変更する必要有り
+     - shmmax とか
+   - ベンチマークとろうよ！
+ 
+** おまけ
+
+   - PostgreSQL の比較的あたらしめのやつら (8.4とか) だと
+     単に effective\_cache\_size 変えたぐらいじゃかわらない
+
+     PostgreSQL 元々の最適化がかなり効いてる？
+
+   - VMware 上で チューニングすると結構不安定
+     - 効果が安定しない
+     - VMware tools を入れると変わるのかな？
+
+   以上です
