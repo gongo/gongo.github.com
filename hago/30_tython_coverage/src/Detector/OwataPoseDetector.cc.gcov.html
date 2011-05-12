@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>LCOV - lcov.info - src/Detector/OwataPoseDetector.cc</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">src/Detector</a> - OwataPoseDetector.cc<span style="font-size: 80%;"> (source / <a href="OwataPoseDetector.cc.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">lcov.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2011-05-12</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : #include &quot;OwataPoseDetector.h&quot;</a>
+<span class="lineNum">       2 </span>                :            : 
+<span class="lineNum">       3 </span>                :<span class="lineNoCov">          0 : bool OwataPoseDetector::isPosing(void)</span>
+<span class="lineNum">       4 </span>                :            : {
+<span class="lineNum">       5 </span>                :<span class="lineNoCov">          0 :     Vector rightForearm  = user-&gt;skeletonRightForearm();</span>
+<span class="lineNum">       6 </span>                :<span class="lineNoCov">          0 :     Vector rightUpperArm = user-&gt;skeletonRightUpperArm();</span>
+<span class="lineNum">       7 </span>                :<span class="lineNoCov">          0 :     Vector leftForearm   = user-&gt;skeletonLeftForearm();</span>
+<span class="lineNum">       8 </span>                :<span class="lineNoCov">          0 :     Vector leftUpperArm  = user-&gt;skeletonLeftUpperArm();</span>
+<span class="lineNum">       9 </span>                :            :     //Vector medianLine    = user-&gt;skeletonMedianLine().reverse();
+<span class="lineNum">      10 </span>                :<span class="lineNoCov">          0 :     Vector medianLine    = user-&gt;skeletonHead();</span>
+<span class="lineNum">      11 </span>                :<span class="lineNoCov">          0 :     Vector rightHand     = user-&gt;positionRightHand();</span>
+<span class="lineNum">      12 </span>                :<span class="lineNoCov">          0 :     Vector leftHand      = user-&gt;positionLeftHand();</span>
+<span class="lineNum">      13 </span>                :<span class="lineNoCov">          0 :     Vector head          = user-&gt;positionHead();</span>
+<span class="lineNum">      14 </span>                :            : 
+<span class="lineNum">      15 </span>                :            :     return rightForearm.isStraight(rightUpperArm.reverse())
+<span class="lineNum">      16 </span>                :            :         &amp;&amp; leftForearm.isStraight(leftUpperArm.reverse())
+<span class="lineNum">      17 </span>                :            :         &amp;&amp; medianLine.betweenAngle(rightUpperArm, 45.0f)
+<span class="lineNum">      18 </span>                :            :         &amp;&amp; medianLine.betweenAngle(leftUpperArm, 45.0f)
+<span class="lineNum">      19 </span>                :            :         &amp;&amp; head.Y &lt; rightHand.Y
+<span class="lineNum">      20 </span>[<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>][<span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span>]:<span class="lineNoCov">          0 :         &amp;&amp; head.Y &lt; leftHand.Y;</span>
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span>][<span class="branchNoExec" title="Branch 12 was not executed"> # </span><span class="branchNoExec" title="Branch 13 was not executed"> # </span>]
+<span class="lineNum">         </span>[<span class="branchNoExec" title="Branch 14 was not executed"> # </span><span class="branchNoExec" title="Branch 15 was not executed"> # </span>][<span class="branchNoExec" title="Branch 16 was not executed"> # </span><span class="branchNoExec" title="Branch 17 was not executed"> # </span>]
+<span class="lineNum">      21 </span>                :            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
