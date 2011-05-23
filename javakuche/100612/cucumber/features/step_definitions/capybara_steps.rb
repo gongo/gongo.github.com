@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+require 'ruby-debug'
+
 前提 'Yahooトップページに居る' do
   visit 'http://www.yahoo.co.jp'
 end
@@ -40,5 +42,6 @@ end
 end
 
 ならば /^"(.*)"と表示されている$/ do |text|
+  breakpoint
   page.should have_content text
 end
