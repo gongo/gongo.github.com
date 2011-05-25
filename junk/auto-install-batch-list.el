@@ -148,6 +148,27 @@
           (
            "http://www.emacswiki.org/emacs/download/shell-pop.el"
            ))
+
+
+
+         ("all-upgrade" nil nil
+          (
+           "espresso"
+           "auto-complete development version"
+           "anything"
+           "php-completion"
+           "perl-completion"
+           "e2wm"
+           "deferred"
+           "concurrent"
+           "anything-books"
+           "calfw"
+           "calfw-howm"
+           "calfw-ical"
+           "anything-howm"
+           "cacoo"
+           "shell-pop"
+           ))
          )                              ;/appende
        auto-install-batch-list))        ;/setq
 
