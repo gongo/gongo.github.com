@@ -32,6 +32,7 @@
          ("anything" 30 5
           (
            "anything-migemo"
+           "http://www.emacswiki.org/emacs/download/anything-obsolete.el"
            "http://www.emacswiki.org/emacs/download/anything-complete.el"
            "http://www.emacswiki.org/emacs/download/anything-show-completion.el"
            "http://www.emacswiki.org/emacs/download/anything-auto-install.el"
