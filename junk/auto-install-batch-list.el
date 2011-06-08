@@ -120,19 +120,11 @@
            "anything-minimal"
            "https://github.com/kiwanami/emacs-anything-books/raw/master/anything-books.el"
            ))
-         ("calfw" nil nil
+         ("calfw-family" 10 1
           (
            "https://github.com/kiwanami/emacs-calfw/raw/master/calfw.el"
-           ))
-         ("calfw-howm" nil nil
-          (
-           "calfw"
            "https://github.com/kiwanami/emacs-calfw/raw/master/calfw-howm.el"
-           ))
-         ("calfw-ical" nil nil
-          (
-           "calfw"
-           "https://github.com/kiwanami/emacs-calfw/raw/master/calfw-ical.el"
+           "https://github.com/kiwanami/emacs-calfw/raw/master/calfw-ical.el"           
            ))
          ("anything-howm" nil nil
           (
@@ -151,7 +143,7 @@
 
 
 
-         ("all-upgrade" nil nil
+         ("all-upgrade" 30 5
           (
            "espresso"
            "auto-complete development version"
@@ -162,9 +154,7 @@
            "deferred"
            "concurrent"
            "anything-books"
-           "calfw"
-           "calfw-howm"
-           "calfw-ical"
+           "calfw-family"
            "anything-howm"
            "cacoo"
            "shell-pop"
