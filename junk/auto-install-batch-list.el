@@ -125,7 +125,8 @@
           (
            "https://github.com/kiwanami/emacs-calfw/raw/master/calfw.el"
            "https://github.com/kiwanami/emacs-calfw/raw/master/calfw-howm.el"
-           "https://github.com/kiwanami/emacs-calfw/raw/master/calfw-ical.el"           
+           "https://github.com/kiwanami/emacs-calfw/raw/master/calfw-ical.el"
+           "https://raw.github.com/kiwanami/emacs-calfw/master/calfw-org.el"
            ))
          ("anything-howm" nil nil
           (
