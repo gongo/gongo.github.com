@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>LCOV - Tython - src/Detector/LeftHookCommandDetector.cc</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">src/Detector</a> - LeftHookCommandDetector.cc<span style="font-size: 80%;"> (source / <a href="LeftHookCommandDetector.cc.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Tython</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">21</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2011-09-08</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">24</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : #include &quot;LeftHookCommandDetector.h&quot;</a>
+<span class="lineNum">       2 </span>                :            : 
+<a name="3"><span class="lineNum">       3 </span>                :            : namespace ty {</a>
+<span class="lineNum">       4 </span>                :            : 
+<span class="lineNum">       5 </span>                :<span class="lineNoCov">          0 : LeftHookCommandDetector::LeftHookCommandDetector(User* _user) : CommandDetector(_user)</span>
+<span class="lineNum">       6 </span>                :            : {
+<span class="lineNum">       7 </span>                :            :     setCommand(1, 4,
+<span class="lineNum">       8 </span>                :            :                &amp;LeftHookCommandDetector::isStand,
+<span class="lineNum">       9 </span>                :            :                &amp;LeftHookCommandDetector::isLeftHookBefore,
+<span class="lineNum">      10 </span>                :            :                &amp;LeftHookCommandDetector::isLeftHookAfter,
+<span class="lineNum">      11 </span>                :<span class="lineNoCov">          0 :                &amp;LeftHookCommandDetector::isStand);</span>
+<a name="12"><span class="lineNum">      12 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      13 </span>                :            : 
+<span class="lineNum">      14 </span>                :<span class="lineNoCov">          0 : LeftHookCommandDetector::~LeftHookCommandDetector(void)</span>
+<span class="lineNum">      15 </span>                :            : {
+<a name="16"><span class="lineNum">      16 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]:<span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span>]
+<span class="lineNum">      17 </span>                :            : 
+<span class="lineNum">      18 </span>                :<span class="lineNoCov">          0 : bool LeftHookCommandDetector::isStand(void) const</span>
+<span class="lineNum">      19 </span>                :            : {
+<span class="lineNum">      20 </span>                :<span class="lineNoCov">          0 :     Vector shoulder = user-&gt;leftShoulder();</span>
+<span class="lineNum">      21 </span>                :<span class="lineNoCov">          0 :     Vector elbow    = user-&gt;leftElbow();</span>
+<span class="lineNum">      22 </span>                :<span class="lineNoCov">          0 :     Vector hand     = user-&gt;leftHand();</span>
+<span class="lineNum">      23 </span>                :            : 
+<span class="lineNum">      24 </span>                :            :     return user-&gt;leftArmIsBentRightAngle()
+<span class="lineNum">      25 </span>                :            :         &amp;&amp; hand.Y &gt; shoulder.Y
+<span class="lineNum">      26 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :         &amp;&amp; hand.Y &gt; elbow.Y;</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]
+<a name="27"><span class="lineNum">      27 </span>                :            : }</a>
+<span class="lineNum">      28 </span>                :            : 
+<span class="lineNum">      29 </span>                :<span class="lineNoCov">          0 : bool LeftHookCommandDetector::isLeftHookBefore(void) const</span>
+<span class="lineNum">      30 </span>                :            : {
+<span class="lineNum">      31 </span>                :<span class="lineNoCov">          0 :     Vector shoulder = user-&gt;leftShoulder();</span>
+<span class="lineNum">      32 </span>                :<span class="lineNoCov">          0 :     Vector elbow    = user-&gt;leftElbow();</span>
+<span class="lineNum">      33 </span>                :<span class="lineNoCov">          0 :     Vector hand     = user-&gt;leftHand();</span>
+<span class="lineNum">      34 </span>                :            : 
+<span class="lineNum">      35 </span>                :            :     return user-&gt;leftArmIsBentRightAngle()
+<span class="lineNum">      36 </span>                :            :         &amp;&amp; shoulder.X &gt; hand.X
+<span class="lineNum">      37 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :         &amp;&amp; shoulder.X &gt; elbow.X;</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span>]
+<a name="38"><span class="lineNum">      38 </span>                :            : }</a>
+<span class="lineNum">      39 </span>                :            : 
+<span class="lineNum">      40 </span>                :<span class="lineNoCov">          0 : bool LeftHookCommandDetector::isLeftHookAfter(void) const</span>
+<span class="lineNum">      41 </span>                :            : {
+<span class="lineNum">      42 </span>                :<span class="lineNoCov">          0 :     Vector shoulder = user-&gt;leftShoulder();</span>
+<span class="lineNum">      43 </span>                :<span class="lineNoCov">          0 :     Vector elbow    = user-&gt;leftElbow();</span>
+<span class="lineNum">      44 </span>                :<span class="lineNoCov">          0 :     Vector hand     = user-&gt;leftHand();</span>
+<span class="lineNum">      45 </span>                :<span class="lineNoCov">          0 :     Vector neck     = user-&gt;neck();</span>
+<span class="lineNum">      46 </span>                :            : 
+<span class="lineNum">      47 </span>                :            :     return shoulder.X &lt; elbow.X
+<span class="lineNum">      48 </span>                :            :         &amp;&amp; elbow.X &lt; hand.X
+<span class="lineNum">      49 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         &amp;&amp; neck.X &lt; hand.X;</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
+<span class="lineNum">      50 </span>                :            : }
+<span class="lineNum">      51 </span>                :            : 
+<span class="lineNum">      52 </span>                :            : } // namespace ty
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
