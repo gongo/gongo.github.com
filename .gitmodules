@@ -1,3 +1,0 @@
-[submodule "vendor/KickStart"]
-	path = vendor/KickStart
-	url = git://github.com/joshuagatcke/HTML-KickStart.git
