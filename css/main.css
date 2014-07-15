@@ -223,11 +223,11 @@ article {
     margin: 0 auto;
 }
 
-section h1 {
+section h2 {
     border-bottom: 1px solid #3333bb;
 }
 
-section h2:after {
+section h3:after {
     content: ' \0023ce';
 }
 
